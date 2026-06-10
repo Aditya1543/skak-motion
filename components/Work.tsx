@@ -138,6 +138,7 @@ const demos: DemoItem[] = [
     tags: ["Screen recording", "SaaS demo", "Motion graphics"],
     reverse: true,
     Thumb: InvoiceThumb,
+    videoId: "7g69GG5CltA",
   },
   {
     label: "From-scratch animation · priced per finished minute",
