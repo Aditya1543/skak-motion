@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { openPricing } from "./PricingModal";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -71,6 +72,25 @@ export default function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <button
+              onClick={openPricing}
+              style={{
+                fontFamily: "var(--font-body), sans-serif",
+                fontSize: "0.9rem",
+                color: "rgba(240,237,232,0.55)",
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#f0ede8")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(240,237,232,0.55)")}
+            >
+              Pricing
+            </button>
+          </li>
         </ul>
 
         <a href="#contact" className="btn-primary" style={{ fontSize: "0.875rem", padding: "0.65rem 1.5rem" }}>

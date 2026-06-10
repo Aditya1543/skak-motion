@@ -10,6 +10,7 @@ import Deliverables from "@/components/Deliverables";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import PricingModal from "@/components/PricingModal";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <PricingModal />
     </>
   );
 }

@@ -3,6 +3,7 @@
 import { useRef, FormEvent, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check, Loader2 } from "lucide-react";
+import { openPricing } from "./PricingModal";
 
 const perks = ["Reply within 24 hours", "First revision free", "No upfront payment"];
 
@@ -221,18 +222,28 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
+              <button
+                onClick={openPricing}
+                className="btn-ghost"
+                style={{
+                  width: "100%",
+                  marginTop: "1.5rem",
+                  fontSize: "0.875rem",
+                  padding: "0.85rem 1.5rem",
+                }}
+              >
+                View pricing
+              </button>
               <p style={{
-                marginTop: "1.25rem",
-                paddingTop: "1.25rem",
-                borderTop: "1px solid rgba(255,255,255,0.05)",
+                marginTop: "1rem",
                 fontFamily: "var(--font-body), sans-serif",
                 fontWeight: 300,
-                fontSize: "0.8rem",
+                fontSize: "0.78rem",
                 color: "rgba(240,237,232,0.3)",
                 lineHeight: 1.7,
+                textAlign: "center",
               }}>
-                Detailed rate card (PDF) coming soon — until then, just ask and
-                we&apos;ll break it down for your project.
+                All figures are estimates — nothing&apos;s fixed until we scope it together.
               </p>
             </div>
           </motion.div>
