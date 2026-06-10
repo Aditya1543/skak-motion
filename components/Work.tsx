@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Play } from "lucide-react";
 
@@ -115,6 +115,8 @@ interface DemoItem {
   tags: string[];
   reverse: boolean;
   Thumb: () => React.ReactElement;
+  /** YouTube video ID — when set, the card becomes a click-to-play embed. */
+  videoId?: string;
 }
 
 const demos: DemoItem[] = [
@@ -126,6 +128,7 @@ const demos: DemoItem[] = [
     tags: ["Flowchart", "Decision tree", "Brand-matched"],
     reverse: false,
     Thumb: FlowchartThumb,
+    videoId: "7Lz1LQB6ybE",
   },
   {
     label: "Product demo · priced per finished minute",
@@ -147,24 +150,52 @@ const demos: DemoItem[] = [
   },
 ];
 
-function VideoCard({ Thumb }: { Thumb: () => React.ReactElement }) {
+function VideoCard({ Thumb, videoId }: { Thumb: () => React.ReactElement; videoId?: string }) {
+  const [playing, setPlaying] = useState(false);
+
+  if (videoId && playing) {
+    return (
+      <div style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "16/9",
+        borderRadius: "1rem",
+        background: "#0f0f0f",
+        border: "1px solid rgba(125,211,252,0.2)",
+        overflow: "hidden",
+      }}>
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`}
+          title="SKAK Motion demo video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }}
+        />
+      </div>
+    );
+  }
+
   return (
-    <div style={{
-      position: "relative",
-      width: "100%",
-      aspectRatio: "16/9",
-      borderRadius: "1rem",
-      background: "#0f0f0f",
-      border: "1px solid rgba(255,255,255,0.06)",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "1rem",
-      cursor: "pointer",
-      overflow: "hidden",
-      transition: "border-color 0.3s",
-    }}
+    <div
+      role={videoId ? "button" : undefined}
+      aria-label={videoId ? "Play video" : undefined}
+      onClick={videoId ? () => setPlaying(true) : undefined}
+      style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "16/9",
+        borderRadius: "1rem",
+        background: "#0f0f0f",
+        border: "1px solid rgba(255,255,255,0.06)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: "1rem",
+        cursor: "pointer",
+        overflow: "hidden",
+        transition: "border-color 0.3s",
+      }}
       onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(125,211,252,0.2)")}
       onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)")}
     >
@@ -172,20 +203,20 @@ function VideoCard({ Thumb }: { Thumb: () => React.ReactElement }) {
       <div style={{
         position: "relative",
         width: 64, height: 64, borderRadius: "50%",
-        border: "1px solid rgba(125,211,252,0.25)",
+        border: `1px solid rgba(125,211,252,${videoId ? 0.5 : 0.25})`,
         background: "rgba(8,8,8,0.55)",
         backdropFilter: "blur(4px)",
         display: "flex", alignItems: "center", justifyContent: "center",
         transition: "all 0.3s",
       }}>
-        <Play style={{ width: 22, height: 22, color: "rgba(125,211,252,0.7)", fill: "rgba(125,211,252,0.7)", marginLeft: 3 }} />
+        <Play style={{ width: 22, height: 22, color: "rgba(125,211,252,0.9)", fill: "rgba(125,211,252,0.9)", marginLeft: 3 }} />
       </div>
       <p style={{
         position: "relative",
         fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase",
         color: "rgba(240,237,232,0.3)", fontFamily: "var(--font-body), sans-serif",
       }}>
-        Coming soon
+        {videoId ? "Watch the video" : "Coming soon"}
       </p>
     </div>
   );
@@ -211,7 +242,7 @@ function DemoRow({ item }: { item: DemoItem }) {
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.75, ease }}
       >
-        <VideoCard Thumb={item.Thumb} />
+        <VideoCard Thumb={item.Thumb} videoId={item.videoId} />
       </motion.div>
 
       {/* Text */}
