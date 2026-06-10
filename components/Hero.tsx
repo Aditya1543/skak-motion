@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import HeroBackdrop from "./HeroBackdrop";
 
 export default function Hero() {
   return (
@@ -17,19 +18,16 @@ export default function Hero() {
         padding: "0 1.5rem",
       }}
     >
+      {/* Scrolling demo-card backdrop */}
+      <HeroBackdrop />
+
       {/* Orbs */}
       <div style={{
         position: "absolute", top: "33%", left: "50%",
         transform: "translate(-50%, -50%)",
         width: 700, height: 700, borderRadius: "50%",
-        background: "rgba(125,211,252,0.07)",
+        background: "rgba(125,211,252,0.06)",
         filter: "blur(140px)", pointerEvents: "none",
-      }} />
-      <div style={{
-        position: "absolute", bottom: 0, right: "25%",
-        width: 400, height: 400, borderRadius: "50%",
-        background: "rgba(125,211,252,0.04)",
-        filter: "blur(100px)", pointerEvents: "none",
       }} />
 
       <div style={{ position: "relative", zIndex: 10, maxWidth: "56rem", width: "100%", textAlign: "center", margin: "0 auto" }}>
@@ -44,13 +42,14 @@ export default function Hero() {
             display: "inline-flex", alignItems: "center", gap: "0.5rem",
             padding: "0.4rem 1rem", borderRadius: "9999px",
             border: "1px solid rgba(255,255,255,0.08)",
-            background: "rgba(255,255,255,0.03)",
+            background: "rgba(8,8,8,0.6)",
+            backdropFilter: "blur(8px)",
             fontSize: "0.68rem", letterSpacing: "0.15em", textTransform: "uppercase",
-            color: "rgba(240,237,232,0.4)",
+            color: "rgba(240,237,232,0.45)",
             fontFamily: "var(--font-body), sans-serif",
           }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#7dd3fc", display: "inline-block" }} />
-            Remotion-powered motion studio
+            Motion studio for SaaS
           </span>
         </motion.div>
 
@@ -68,9 +67,9 @@ export default function Hero() {
             color: "#f0ede8",
           }}
         >
-          Your product,
+          Make complex
           <br />
-          <span style={{ color: "#7dd3fc" }}>animated.</span>
+          products <span style={{ color: "#7dd3fc" }}>click.</span>
         </motion.h1>
 
         {/* Sub */}
@@ -85,11 +84,13 @@ export default function Hero() {
             marginRight: "auto",
             fontSize: "clamp(1rem, 2vw, 1.1rem)",
             fontFamily: "var(--font-body), sans-serif",
-            color: "rgba(240,237,232,0.5)",
+            color: "rgba(240,237,232,0.55)",
             lineHeight: 1.8,
           }}
         >
-          We turn your screen recordings into cinematic product demos that convert.
+          Flowchart explainers, product demos and from-scratch animation that
+          turn confusing software into something people instantly understand —
+          delivered in 5 days, in your brand colors.
         </motion.p>
 
         {/* CTAs */}
@@ -107,8 +108,24 @@ export default function Hero() {
           }}
         >
           <a href="#work" className="btn-ghost">See our work</a>
-          <a href="#pricing" className="btn-primary">Get in touch</a>
+          <a href="#contact" className="btn-primary">Get in touch</a>
         </motion.div>
+
+        {/* Trust line */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+          style={{
+            marginTop: "1.75rem",
+            fontSize: "0.74rem",
+            letterSpacing: "0.06em",
+            fontFamily: "var(--font-body), sans-serif",
+            color: "rgba(240,237,232,0.35)",
+          }}
+        >
+          No upfront payment &nbsp;·&nbsp; First revision free &nbsp;·&nbsp; Reply within 24 hours
+        </motion.p>
       </div>
 
       {/* Scroll hint */}

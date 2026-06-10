@@ -54,6 +54,46 @@ body {
   animation: marquee 32s linear infinite;
 }
 
+/* ── Hero backdrop rows ── */
+@keyframes hero-row-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes hero-row-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.hero-tile {
+  width: 250px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: #0b0d0e;
+  padding: 14px;
+}
+
+/* ── Flowing dashes ── */
+@keyframes dash-flow {
+  to { stroke-dashoffset: -26; }
+}
+.flow-dash {
+  animation: dash-flow 1.4s linear infinite;
+}
+
+/* ── Spinner ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-row,
+  .flow-dash,
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
 /* ── Film grain ── */
 @keyframes grain {
   0%,100% { transform: translate(0,0); }

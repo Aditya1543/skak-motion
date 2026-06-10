@@ -27,7 +27,7 @@ export default function Footer() {
           fontSize: "0.8rem",
           color: "rgba(240,237,232,0.25)",
         }}>
-          Made with Remotion in Hyderabad, India
+          Crafted frame by frame in Hyderabad, India
         </p>
       </div>
     </footer>

@@ -51,7 +51,8 @@ export default function Nav() {
           {[
             { label: "Work", href: "#work" },
             { label: "How it works", href: "#how-it-works" },
-            { label: "Pricing", href: "#pricing" },
+            { label: "Brand colors", href: "#brand" },
+            { label: "Contact", href: "#contact" },
           ].map((link) => (
             <li key={link.label}>
               <a
@@ -72,7 +73,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        <a href="#pricing" className="btn-primary" style={{ fontSize: "0.875rem", padding: "0.65rem 1.5rem" }}>
+        <a href="#contact" className="btn-primary" style={{ fontSize: "0.875rem", padding: "0.65rem 1.5rem" }}>
           Get in touch
         </a>
       </div>

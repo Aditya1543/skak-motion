@@ -1,5 +1,5 @@
 export default function Marquee() {
-  const chunk = "Remotion  ·  SaaS Demos  ·  Animated Explainers  ·  Flowcharts  ·  Product Walkthroughs  ·  ";
+  const chunk = "Flowchart Explainers  ·  SaaS Demos  ·  From-scratch Animation  ·  Brand-matched Icons  ·  5-day Delivery  ·  ";
   const text = chunk.repeat(8);
 
   return (

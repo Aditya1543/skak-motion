@@ -15,9 +15,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SKAK Motion — Cinematic SaaS Demo Videos",
+  title: "SKAK Motion — Make Complex Products Click",
   description:
-    "We turn your screen recordings into cinematic product demos that convert. Powered by Remotion.",
+    "Flowchart explainers, SaaS product demos and from-scratch animation that turn confusing software into something people instantly understand — delivered in 5 days, in your brand colors.",
 };
 
 export default function RootLayout({

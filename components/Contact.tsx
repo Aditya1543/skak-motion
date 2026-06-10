@@ -68,7 +68,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="pricing" className="section section-dark">
+    <section id="contact" className="section section-dark">
       <div className="wrap">
         <motion.div
           ref={ref}
@@ -94,7 +94,7 @@ export default function Contact() {
               letterSpacing: "-0.02em",
               marginBottom: "1.25rem",
             }}>
-              Let&apos;s make something great
+              Tell us what&apos;s hard to explain
             </h2>
             <p style={{
               fontFamily: "var(--font-body), sans-serif",
@@ -104,7 +104,9 @@ export default function Contact() {
               lineHeight: 1.85,
               marginBottom: "2.5rem",
             }}>
-              Pricing depends on complexity and length. Most projects start at $300. Just tell us what you need.
+              Describe your product and what people struggle to understand about
+              it. We&apos;ll reply within 24 hours with an exact quote and a
+              delivery date — most projects ship in 5 days.
             </p>
 
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -122,7 +124,7 @@ export default function Contact() {
                 <label htmlFor="message" style={labelStyle}>Tell us about your project</label>
                 <textarea
                   id="message" name="message" required rows={5}
-                  placeholder="We have a SaaS product and need a 60-second animated demo..."
+                  placeholder="Our onboarding confuses new users — we need a 60-second video that walks them through it..."
                   style={{ ...inputStyle, resize: "none", lineHeight: 1.75 }}
                 />
               </div>
@@ -181,43 +183,57 @@ export default function Contact() {
                 color: "#f0ede8",
                 marginBottom: "0.75rem",
               }}>
-                Typical project
+                How we price
               </p>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                {[
+                  { item: "Flowchart explainer videos", unit: "per minute" },
+                  { item: "Screen-recorded product demos", unit: "per minute" },
+                  { item: "From-scratch animation, no recording", unit: "per minute" },
+                  { item: "Custom icons & logo animation", unit: "add-on" },
+                ].map(({ item, unit }, i) => (
+                  <div key={item} style={{
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
+                    gap: "1rem",
+                    padding: "0.85rem 0",
+                    borderTop: i === 0 ? "none" : "1px solid rgba(255,255,255,0.05)",
+                  }}>
+                    <span style={{
+                      fontFamily: "var(--font-body), sans-serif",
+                      fontWeight: 300,
+                      fontSize: "0.875rem",
+                      color: "rgba(240,237,232,0.55)",
+                    }}>
+                      {item}
+                    </span>
+                    <span style={{
+                      flexShrink: 0,
+                      fontFamily: "var(--font-body), sans-serif",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      color: "#7dd3fc",
+                    }}>
+                      {unit}
+                    </span>
+                  </div>
+                ))}
+              </div>
               <p style={{
+                marginTop: "1.25rem",
+                paddingTop: "1.25rem",
+                borderTop: "1px solid rgba(255,255,255,0.05)",
                 fontFamily: "var(--font-body), sans-serif",
                 fontWeight: 300,
-                fontSize: "0.875rem",
-                color: "rgba(240,237,232,0.35)",
-                lineHeight: 1.8,
+                fontSize: "0.8rem",
+                color: "rgba(240,237,232,0.3)",
+                lineHeight: 1.7,
               }}>
-                60-second animated product demo with motion graphics, screen recording cleanup, and custom sound design.
+                Detailed rate card (PDF) coming soon — until then, just ask and
+                we&apos;ll break it down for your project.
               </p>
-              <div style={{
-                marginTop: "1.5rem",
-                paddingTop: "1.5rem",
-                borderTop: "1px solid rgba(255,255,255,0.05)",
-                display: "flex",
-                alignItems: "baseline",
-                gap: "0.5rem",
-              }}>
-                <span style={{
-                  fontFamily: "var(--font-display), sans-serif",
-                  fontWeight: 700,
-                  fontSize: "2.5rem",
-                  color: "#f0ede8",
-                  lineHeight: 1,
-                  letterSpacing: "-0.02em",
-                }}>
-                  $300
-                </span>
-                <span style={{
-                  fontFamily: "var(--font-body), sans-serif",
-                  fontSize: "0.8rem",
-                  color: "rgba(240,237,232,0.25)",
-                }}>
-                  / starting at
-                </span>
-              </div>
             </div>
           </motion.div>
         </motion.div>

@@ -2,32 +2,38 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { RefreshCw, Zap, CreditCard } from "lucide-react";
+import { RefreshCw, CalendarClock, CreditCard, Palette } from "lucide-react";
 
 const cards = [
   {
-    icon: RefreshCw,
-    title: "Multiple iterations",
+    icon: CalendarClock,
+    title: "5-day turnaround",
     description:
-      "We refine until it's exactly right. Revisions and tweaks are included — no extra charges on feedback rounds.",
+      "Brief on Monday, final cut on Friday. A fixed five-day pipeline from first call to delivered video — rush timelines on request.",
   },
   {
-    icon: Zap,
-    title: "Fast delivery",
+    icon: Palette,
+    title: "Always on-brand",
     description:
-      "Most videos delivered within 3–5 business days. Need it faster? We can usually accommodate rush timelines.",
+      "Every icon, node and arrow is recolored to your palette before we animate a single frame. Your video looks like your product, not a template.",
+  },
+  {
+    icon: RefreshCw,
+    title: "First revision free",
+    description:
+      "Feedback is part of the plan, not an upsell. Your first full revision round costs nothing, and we keep refining until it's right.",
   },
   {
     icon: CreditCard,
-    title: "Pay per video",
+    title: "Per-minute pricing",
     description:
-      "No retainers, no long-term contracts. Pay per project and own everything we make for you.",
+      "No retainers, no contracts, no upfront payment. You pay per finished minute and own everything we make for you — source files included.",
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.14 } },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const cardVariants = {
@@ -52,7 +58,7 @@ export default function WhySkak() {
           className="section-head"
         >
           <span className="overline">Why us</span>
-          <h2 className="h2">Why work with us</h2>
+          <h2 className="h2">Why teams hand us the hard-to-explain stuff</h2>
         </motion.div>
 
         <motion.div
@@ -62,7 +68,7 @@ export default function WhySkak() {
           animate={gridInView ? "visible" : "hidden"}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "1.25rem",
           }}
         >
