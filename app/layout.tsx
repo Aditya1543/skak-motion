@@ -18,6 +18,10 @@ export const metadata: Metadata = {
   title: "SKAK Motion — Make Complex Products Click",
   description:
     "Flowchart explainers, SaaS product demos and from-scratch animation that turn confusing software into something people instantly understand — delivered in 5 days, in your brand colors.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
